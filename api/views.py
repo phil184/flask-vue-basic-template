@@ -36,7 +36,7 @@ def logout():
     logout_user()
     
     return jsonify({
-        'message' : 'LOGOUT AUFGERUFEN!'
+        'message' : 'Logout'
     })
     
     
@@ -44,7 +44,7 @@ def logout():
 @base_view.route('/api/dashboard', methods=['GET', 'POST'])
 def dashboard():
     return jsonify({
-        'message': f'Du bist eingeloggt, willkommen {current_user.username}'
+        'message': f'Welcome, {current_user.username}'
     })
 
 

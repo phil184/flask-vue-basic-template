@@ -20,7 +20,7 @@ class Config(object):
 
 class ProductionConfig(Config):
     
-	SQLALCHEMY_DATABASE_URI = 'sqlite:///api/database/user.db'
+	SQLALCHEMY_DATABASE_URI = ''
 	SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class DevelopmentConfig(Config):
