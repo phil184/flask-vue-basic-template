@@ -8,7 +8,7 @@ base_view = Blueprint('base_view', __name__)
 
 @base_view.route('/')
 def index():
-    return jsonify("Hello World")
+    return jsonify("API response")
 
 
 @base_view.route('/api/login', methods=['POST', 'GET'])
@@ -46,11 +46,6 @@ def dashboard():
     return jsonify({
         'message': f'Du bist eingeloggt, willkommen {current_user.username}'
     })
-
-
-@base_view.route('/api/ping', methods=['GET'])
-def ping_pong():
-    return jsonify('pong!')
 
 
 # User-loader
