@@ -33,7 +33,7 @@ This project includes:
 ---
 
 ## 📁 Project Structure
-
+```
 template/
 │
 ├── api/ # Flask application
@@ -52,7 +52,7 @@ template/
 ├── Makefile # Setup script (venv, install dependencies, etc.)
 ├── requirements.txt # Python dependencies
 └── setup # Optional: Windows/Linux setup scripts
-
+```
 
 ---
 
