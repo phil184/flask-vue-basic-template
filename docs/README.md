@@ -5,7 +5,7 @@ A simple starter template to quickly get up and running with **Flask** and **Vue
 This project includes:
 - A minimal base configuration
 - A simple authentication system (login)
-- A connected frontend and backend with a working dashboard after login
+- A connected frontend and backend with an empty dashboard after login
 
 ---
 

@@ -11,7 +11,7 @@ def index():
     return jsonify("API response")
 
 
-@base_view.route('/api/login', methods=['POST', 'GET'])
+@base_view.route('/api/login', methods=['POST'])
 def login():
     data = request.get_json()
     username = data.get('username') 
@@ -37,15 +37,19 @@ def logout():
     
     return jsonify({
         'message' : 'Logout'
-    })
+    }), 200
     
     
-@login_required
-@base_view.route('/api/dashboard', methods=['GET', 'POST'])
-def dashboard():
-    return jsonify({
-        'message': f'Welcome, {current_user.username}'
-    })
+@base_view.route('/api/auth', methods=['GET'])
+def authUser():
+    if current_user.is_authenticated:
+        return jsonify({
+            'username': current_user.username
+        }), 200
+    else:
+        return jsonify({
+            'message' : 'Fail'
+        }), 400
 
 
 # User-loader
