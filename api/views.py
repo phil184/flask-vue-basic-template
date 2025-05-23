@@ -16,7 +16,6 @@ def login():
     data = request.get_json()
     username = data.get('username') 
     password = data.get('password')
-    
     user = User.query.filter_by(username=username).first()
 
     if user and user.password == password:
@@ -30,8 +29,9 @@ def login():
         "message" : "Login failed"
     }), 400
     
+
+@base_view.route('/api/logout', methods=['GET'])
 @login_required
-@base_view.route('/api/logout', methods=['POST', 'GET'])
 def logout():
     logout_user()
     
@@ -48,8 +48,13 @@ def authUser():
         }), 200
     else:
         return jsonify({
-            'message' : 'Fail'
+            'message' : 'Failed'
         }), 400
+        
+
+@lm.unauthorized_handler
+def unauthorized():
+    return jsonify({'error': 'Unauthorized'}), 401
 
 
 # User-loader

@@ -58,12 +58,12 @@ export default {
           withCredentials: true
         })
         .then((response) => {
-          console.log('Übertragung erfolgreich', response.data);
+          console.log('Success', response.data);
 
           this.$router.push('/dashboard');
         })
         .catch((error) => {
-          console.error('Login fehlgeschlagen:', error.response?.data || error.message);
+          console.error('Failed', error.response?.data || error.message);
         });
     },
   },

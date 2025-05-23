@@ -24,17 +24,20 @@ const router = createRouter({
     component: Dashboard,
     beforeEnter: async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/auth', {
+        const res = await axios
+        .get('http://localhost:5000/api/auth', {
           withCredentials: true,
         });
 
         if (res.status === 200) {
           return true; 
         } else {
-          return { path: '/login' };
+          return { 
+            path: '/login' };
         }
       } catch (err) {
-        return { path: '/login' };
+        return { 
+          path: '/login' };
       }
     }
   },

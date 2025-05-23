@@ -71,14 +71,14 @@ export default {
   },
 
   created() {
-    axios.get('http://localhost:5000/api/auth', { withCredentials: true })
+    axios
+    .get('http://localhost:5000/api/auth', { withCredentials: true })
       .then((res) => {
         this.username = res.data.username;
-        console.log("Angemeldet als:", this.username);
+        console.log("User: ", this.username);
       })
       .catch((err) => {
-        console.error('Nicht authentifiziert:', err);
-        this.$router.push('/login');
+        console.error('Failed: ', err);
       });
   },
 

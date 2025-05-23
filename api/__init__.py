@@ -34,7 +34,7 @@ def create_app():
     # Init SqlAlchemy
     db.init_app(app)
     lm.init_app(app)
-    lm.login_view = 'base_view.api/login'
+    lm.login_view = 'base_view.login'
     
     from .models import User
     
