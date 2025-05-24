@@ -13,10 +13,11 @@
             </a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 rounded-md text-gray-200 hover:bg-indigo-600">
-              Users
+            <a href="#" @click="openUserModal"
+            class="block px-4 py-2 rounded-md text-gray-200 hover:bg-indigo-600">
+            Users
             </a>
-          </li>
+        </li>
         </ul>
       </nav>
     </div>
@@ -59,6 +60,18 @@
       </div>
     </div>
   </div>
+  <div v-if="showUsers" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white rounded-2xl shadow-xl w-full max-w-lg p-6">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-semibold">Benutzerliste</h2>
+      <button @click="showUsers = false" class="text-gray-400 hover:text-gray-600">✖</button>
+    </div>
+    <tr v-for="user in users" :key="user.id">
+  <td>{{ user.id }}</td>
+  <td>{{ user.username }}</td>
+</tr>
+  </div>
+</div>
 </template>
 
 <script>
@@ -66,6 +79,8 @@ import axios from 'axios';
 export default {
   data() {
     return {
+      showUsers: false,
+      users: [],
       username: '',
     };
   },
@@ -85,7 +100,8 @@ export default {
   methods: {
     logout() {
       const path = 'http://localhost:5000/api/logout';
-      axios.get(path, { withCredentials: true })
+      axios.
+      get(path, { withCredentials: true })
         .then((res) => {
           console.log("Logout", res.data)
           this.$router.push('/login');
@@ -95,12 +111,20 @@ export default {
           console.error(error);
         });
     },
-    
-  },
 
+    openUserModal() {
+      this.showUsers = true
+      axios.
+      get("http://localhost:5000/api/user", { withCredentials: true })
+        .then(response => {
+          this.users = response.data
+        })
+        .catch(error => {
+          console.error("Error: ", error)
+        })
     
-
-     
+    },
+  }
 };
 </script>
 

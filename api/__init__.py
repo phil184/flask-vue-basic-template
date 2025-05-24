@@ -25,8 +25,6 @@ def create_app():
     app.config.from_object('api.config.DevelopmentConfig')
     #app.config.from_object('api.config.TestingConfig')
     
-    # Register Blueprints
-    registerBlueprints(app)
     
     # Init LoginManager
     
@@ -36,14 +34,18 @@ def create_app():
     lm.init_app(app)
     lm.login_view = 'base_view.login'
     
-    from .models import User
+    # Register Blueprints
+    registerBlueprints(app)
     
+    
+    from .models import User
     # Database path
     db_path = Path(app.instance_path) / "user.db"
     with app.app_context():
         if not db_path.exists():
             db.create_all()
             # Create User
+            # TODO: hashing
             username = str(input("Please enter username: "))
             password = str(input("Please enter password: "))
             user = User(username=username, password=password)
@@ -58,3 +60,4 @@ def registerBlueprints(app):
     app.register_blueprint(base_view)
     
     # imports for testing blueprints ...
+    

@@ -8,7 +8,22 @@ base_view = Blueprint('base_view', __name__)
 
 @base_view.route('/')
 def index():
+    print(current_user)
     return jsonify("API response")
+
+@base_view.route('/api/user')
+@login_required
+def abfrage():
+    users = User.query.all()
+    user_list = []
+    for user in users:
+        user_list.append({
+            "id": user.id,
+            "username": user.username,
+        })
+
+    print(user_list)
+    return jsonify(user_list), 200
 
 
 @base_view.route('/api/login', methods=['POST'])
