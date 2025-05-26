@@ -1,4 +1,4 @@
-# 🚀 Flask + Vue 3 + Tailwind CSS Template
+# Flask + Vue 3 + Tailwind CSS Template
 
 A simple starter template to quickly get up and running with **Flask** and **Vue 3** + **Tailwind CSS**.
 
@@ -9,7 +9,7 @@ This project includes:
 
 ---
 
-## 📦 Dependencies
+## Dependencies
 
 ### Backend
 - Flask
@@ -24,7 +24,7 @@ This project includes:
 
 ---
 
-## 🧱 Tech Stack
+##  Tech Stack
 
 - [Flask](https://flask.palletsprojects.com/)
 - [Vue.js](https://vuejs.org/)
@@ -32,7 +32,7 @@ This project includes:
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 ```
 template/
 │
@@ -56,7 +56,7 @@ template/
 
 ---
 
-## 🛠️ Setup Instructions
+## Setup Instructions
 
 ### Option 1: Quick Setup
 
@@ -96,8 +96,8 @@ You should see a message displaying "API response", this confirms the connection
 
 Then navigate to /login to access the login page. Use your created credentials to log in and access the dashboard.
 
-🤝 Contributing
+Contributing
 
 Suggestions, improvements, and pull requests are always welcome!
 
-❤️ Happy coding!
+
